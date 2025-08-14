@@ -1,51 +1,89 @@
-# GitHub Stickers Panel
+# Infinite Stickers
 
-A **Vencord plugin** that adds a **GitHub** tab inside Discord’s native sticker picker, allowing you to **manage, send, and delete** stickers hosted in a public GitHub repository.
+Tired of Discord’s **5 sticker limit per server**?  
+**Infinite Stickers** is a Vencord plugin that adds a **GitHub-powered sticker panel** to Discord’s native sticker picker — letting you browse, search, upload, send, and delete as many stickers as you want, all hosted for free on GitHub.
+
+Instead of storing stickers on each Discord server, this plugin pulls them from a **GitHub repository** you control — so you can access the same sticker library everywhere, instantly.
+
+---
 
 ## ✨ Features
 
-- 📂 **List** stickers stored in the `stickers` folder of a GitHub repository.
-- ⬆️ **Upload** new stickers directly to the repository from within Discord.
-- 🗑 **Delete** stickers from the repository via a right-click context menu.
-- 💬 **Send** stickers to a Discord channel (temporarily uploaded and automatically deleted after sending).
-- 🔄 **Automatically refresh** the sticker list after changes.
+- 📂 **Unlimited stickers** — all stored in your GitHub repo, not bound by Discord’s limits.
+- 🔍 **Search bar** — instantly filter stickers by name.
+- ⬆️ **Upload** new stickers directly from Discord (safe filenames & timestamps added automatically).
+- 🗑 **Right-click delete** — instantly remove stickers from your repo.
+- 💬 **Send anywhere**:
+  - As a **temporary guild sticker** (auto-uploaded to your server, then removed after sending).
+  - Or in **Fake Nitro mode** — share stickers anywhere as image links.
+- 🔄 **Auto-refresh** after uploads or deletions.
+- 🖼 **PNG, APNG, GIF** support.
+- ✅ **File size & naming rules** enforced to match Discord’s requirements.
 
-## 📦 Installation
+---
 
-### 1. Prerequisites
-- **Vencord with custom plugin support** (meaning you must "Install from Source").
-  - [Vencord Installation](https://docs.vencord.dev/installing/)
-  - [Custom Plugins](https://docs.vencord.dev/installing/custom-plugins/)
-- A **public GitHub repository** with a `stickers` folder.
-- A **GitHub Personal Access Token** with the `repo` scope.
+## 🚀 Quick Start — Fork & Go
 
-### 2. Adding the plugin
-1. Download `GitHubStickersPanel.tsx`.
-2. Place it in your **Vencord custom plugins folder**.
-3. Reload or rebuild Vencord so the plugin is recognized.
+This is the fastest way to set it up:
 
-### 3. Configuration
-In Vencord’s settings, configure:
-- **GitHub token** → Your GitHub personal token (`ghp_...`)
-- **GitHub repo** → Format: `owner/repo`
-- **GitHub branch** → Defaults to `main`
-- **Target Guild ID** (optional) → The Discord server ID for hosting stickers.
+1. **Fork the ready-to-use stickers repository**  
+   👉 [Fork This Stickers Repo](https://github.com/YOUR_USERNAME/YOUR_STICKERS_REPO)  
+   _(Already has the required `stickers` folder.)_
+
+2. **Get your Guild ID** (Required!)  
+   - In Discord, go to **User Settings → Advanced** and enable **Developer Mode**.  
+   - Right-click your server icon → **Copy Server ID**.  
+   - This is the **Target Guild ID** you’ll enter in plugin settings.
+
+3. **Get your GitHub Personal Access Token**  
+   - Go to [GitHub → Developer settings → Personal access tokens](https://github.com/settings/tokens).  
+   - Click **Generate new token (Classic)**.  
+   - Give it a name, select **repo** scope, and create it.  
+   - Copy the token (starts with `ghp_...`) — you’ll need it for the plugin.
+
+4. **Install the plugin**  
+   - Install [Vencord](https://docs.vencord.dev/installing/custom-plugins/) with **custom plugin support**.  
+   - Download `InfiniteStickers.tsx` from this repository.  
+   - Place it in your **Vencord custom plugins** folder.  
+   - Rebuild or reload Vencord.
+
+5. **Configure the plugin** in **Vencord → Settings → Infinite Stickers**:  
+   - **GitHub token** → Your `ghp_...` token.  
+   - **GitHub repo** → `your-username/your-fork-name`.  
+   - **GitHub branch** → `main` (or your branch).  
+   - **Target Guild ID** → Your copied server ID.  
+   - (Optional) Enable **Share without Nitro** to send stickers anywhere as image links.
+
+---
 
 ## 🖱 Usage
 
-1. Open the **sticker picker** in Discord.
-2. Click the **GitHub** tab.
-3. From here, you can:
-   - **Upload** a sticker with the `+` button.
-   - **Send** a sticker by clicking it.
-   - **Delete** a sticker with **right-click → Delete**.
+1. Open the **sticker picker** in Discord.  
+2. Click the **Infinite Stickers** tab.  
+3. From here you can:  
+   - **Upload** a sticker with the `+` button.  
+   - **Search** stickers instantly.  
+   - **Send** a sticker by clicking it.  
+   - **Delete** a sticker with **right-click → Delete Sticker**.
+
+---
 
 ## ⚙️ Technical Constraints
 
-- Accepted formats: PNG, APNG, GIF.
-- Maximum file size: **512 KiB**.
-- Name length: 2–30 characters (filename without extension).
+- **Formats:** PNG, APNG, GIF  
+- **Max file size:** 512 KiB  
+- **Name length:** 2–30 characters (excluding extension)  
+- **Description:** Empty or 2–100 characters  
+- **Tags:** up to 200 characters  
+
+---
 
 ## 📜 License
 
-Provided as-is, without warranty.  
+This project is provided **as-is** without warranty.  
+You are free to fork, modify, and use it for personal or public purposes, provided you:  
+- Keep a credit link to the original repository.  
+- Do not sell access to the plugin or stickers.  
+- Use at your own risk — misuse of GitHub API tokens or Discord accounts may result in account restrictions.
+
+---
