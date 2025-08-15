@@ -158,8 +158,14 @@ async function sendSticker(channelId, token, stickerId) {
             body: JSON.stringify(body),
         }
     );
-    if (!res.ok) throw new Error("Send sticker failed: " + (await res.text()));
-    return res.json();
+
+    const resJson = await res.json();
+
+    if (!res.ok) {
+        if (resJson.code === 50081) toast(`Cross-server stickers are only available with Nitro. Please enable "Share Without Nitro" in settings.`);
+        else throw new Error("Send sticker failed: " + (await res.text()));
+    }
+    return resJson;
 }
 async function sendStickerFakeNitro(channelId, name, stickerId, token) {
     const ext = name.match(/\.([^.]+)$/)?.[1] ?? '';
