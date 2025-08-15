@@ -27,7 +27,7 @@ Instead of storing stickers on each Discord server, this plugin pulls them from 
 This is the fastest way to set it up:
 
 1. **Fork the ready-to-use stickers repository**  
-   👉 [Fork This Stickers Repo](https://github.com/YOUR_USERNAME/YOUR_STICKERS_REPO)  
+   👉 [Fork This Stickers Repo](https://github.com/yoan-gilliand/infinite-stickers)  
    _(Already has the required `stickers` folder.)_
 
 2. **Get your Guild ID** (Required!)  
