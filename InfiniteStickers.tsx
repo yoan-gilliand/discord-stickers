@@ -162,7 +162,8 @@ async function sendSticker(channelId, token, stickerId) {
     return res.json();
 }
 async function sendStickerFakeNitro(channelId, name, stickerId, token) {
-    const link = `https://media.discordapp.net/stickers/${stickerId}.png?size=160&name=${encodeURIComponent(name)}`;
+    const ext = name.match(/\.([^.]+)$/)?.[1] ?? '';
+    const link = `https://media.discordapp.net/stickers/${stickerId}.${ext}?size=160&name=${encodeURIComponent(name.replace(/_\d+\.[^.]+$/, ""))}`;
     const linkText = `[${name}](${link})`;
 
     await fetch(`https://discord.com/api/v10/channels/${channelId}/messages`, {
@@ -424,7 +425,6 @@ function GitHubStickersTab({ settings }) {
 
             const blob = await downloadAsBlob(item.download_url);
 
-            console.log(item)
             created = await createGuildSticker(guildId, token, blob, item.name);
 
             if (s.shareWithoutNitro) {
